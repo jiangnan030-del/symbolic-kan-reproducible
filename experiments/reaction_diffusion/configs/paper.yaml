@@ -1,0 +1,40 @@
+name: reaction-diffusion-paper-aligned
+profile: paper
+model:
+  input_dim: 1
+  hidden_units: 6
+  edges_per_unit: 3
+  num_blocks: 4
+  primitives: [sin, cos, exp, x, x2]
+  residual: true
+  primitive_bias: true
+  unit_gates: false
+  readout: fixed_sum
+  inverse_parameter_count: 1
+  inverse_parameter_init: 0.1
+  inverse_parameter_constraint: unconstrained
+  dtype: float32
+training:
+  seed: 42
+  adam_epochs: 10500
+  learning_rate: 0.005
+  weight_decay: 0.0
+  tau_start: 4.0
+  tau_end: 0.2
+  selection_start_fraction: 0.5
+  selection_weight_end: 0.5
+  entropy_weight: 0.9
+  nms_weight: 0.9
+  off_mass_weight: 0.0
+  lbfgs_steps: 500
+  lbfgs_max_iter: 15
+problem:
+  type: reaction_diffusion
+  domain: [-2.0, 2.0]
+  collocation_count: 5000
+  measurement_count: 100
+  diffusion: 0.01
+  kappa_true: 0.7
+provenance:
+  note: manuscript-aligned interpretation; not guaranteed reproduction
+  upstream_commit: 9481a822e73e5a7520c6c0a425a8a402f2878c03

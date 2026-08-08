@@ -1,0 +1,36 @@
+name: volterra-upstream-legacy
+profile: legacy
+model:
+  input_dim: 1
+  hidden_units: 6
+  edges_per_unit: 3
+  num_blocks: 3
+  primitives: [sin, cos, exp, x, x2, const, sinh, cosh]
+  primitive_bias: true
+  unit_gates: false
+  readout: trainable_linear
+  edge_selection: straight_through
+  dtype: float32
+training:
+  seed: 12
+  adam_epochs: 10500
+  learning_rate: 0.005
+  weight_decay: 0.0
+  tau_start: 4.0
+  tau_end: 0.2
+  selection_weight_end: 0.5
+  entropy_weight: 0.9
+  nms_weight: 0.0
+  off_mass_weight: 0.9
+  lbfgs_steps: 500
+  lbfgs_clip_norm: 1.0
+problem:
+  type: volterra
+  domain: [0.0, 10.0]
+  kappa: 1.0
+  collocation_count: 1000
+  quadrature_order: 1000
+  quadrature_mode: masked_global_legacy
+provenance:
+  note: documents audited behavior; masked quadrature is not used by corrected helper
+  upstream_commit: 9481a822e73e5a7520c6c0a425a8a402f2878c03

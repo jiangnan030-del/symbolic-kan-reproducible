@@ -1,0 +1,75 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "symbolic-kan-reproducible"
+version = "0.1.0a1"
+description = "Unofficial, attributed Python packaging and reproducibility refactor of Symbolic-KAN"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [
+  { name = "Salah A. Faroughi and the upstream Symbolic-KAN contributors" },
+]
+maintainers = [
+  { name = "jiangnan030-del" },
+]
+keywords = ["symbolic regression", "Kolmogorov-Arnold networks", "scientific machine learning", "PINN"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+  "numpy>=1.24",
+  "PyYAML>=6.0",
+  "torch>=2.1",
+]
+
+[project.optional-dependencies]
+viz = ["matplotlib>=3.7", "pandas>=2.0", "networkx>=3.1"]
+dev = ["pytest>=7.4", "pytest-cov>=4.1", "ruff>=0.5", "build>=1.2"]
+research = ["scipy>=1.11", "pysindy>=1.7"]
+
+[project.scripts]
+symkan = "symbolic_kan.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/jiangnan030-del/symbolic-kan-reproducible"
+Repository = "https://github.com/jiangnan030-del/symbolic-kan-reproducible"
+Issues = "https://github.com/jiangnan030-del/symbolic-kan-reproducible/issues"
+Upstream = "https://github.com/sfaroughi3/Pub_Symbolic_KANs"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/symbolic_kan"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "/src",
+  "/tests",
+  "/experiments",
+  "/docs",
+  "/examples",
+  "/README.md",
+  "/LICENSE",
+  "/NOTICE.md",
+  "/CITATION.cff",
+  "/CHANGELOG.md",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E9", "F63", "F7", "F82"]

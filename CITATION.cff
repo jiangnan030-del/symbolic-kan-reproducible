@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+message: >-
+  Please cite the original Symbolic-KAN paper and upstream repository as the source of
+  the method. If reproducibility requires it, also cite this unofficial derivative
+  package by version and commit.
+title: "symbolic-kan-reproducible: an unofficial attributed Python refactor"
+type: software
+version: 0.1.0-alpha.1
+date-released: 2026-08-08
+repository-code: "https://github.com/jiangnan030-del/symbolic-kan-reproducible"
+license: MIT
+authors:
+  - name: "jiangnan030-del"
+    alias: "jiangnan030-del"
+preferred-citation:
+  type: article
+  title: "Symbolic–KAN: Kolmogorov-Arnold networks with discrete symbolic structure for interpretable learning"
+  year: 2026
+  authors:
+    - family-names: Faroughi
+      given-names: Salah A.
+    - family-names: Mostajeran
+      given-names: Farinaz
+    - family-names: Arzani
+      given-names: Amirhossein
+    - family-names: Faroughi
+      given-names: Shirko
+references:
+  - type: software
+    title: "Pub_Symbolic_KANs"
+    repository-code: "https://github.com/sfaroughi3/Pub_Symbolic_KANs"
+    commit: "9481a822e73e5a7520c6c0a425a8a402f2878c03"
+    authors:
+      - family-names: Faroughi
+        given-names: Salah A.
+      - family-names: Mostajeran
+        given-names: Farinaz

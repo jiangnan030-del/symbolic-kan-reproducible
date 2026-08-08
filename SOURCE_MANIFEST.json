@@ -1,0 +1,266 @@
+{
+  "package": "symbolic-kan-reproducible",
+  "version": "0.1.0a1",
+  "status": "unofficial derivative alpha",
+  "upstream_repository": "https://github.com/sfaroughi3/Pub_Symbolic_KANs",
+  "upstream_commit": "9481a822e73e5a7520c6c0a425a8a402f2878c03",
+  "configs": [
+    {
+      "path": "experiments/reaction_diffusion/configs/corrected.yaml",
+      "profile": "corrected",
+      "name": "reaction-diffusion-corrected"
+    },
+    {
+      "path": "experiments/reaction_diffusion/configs/legacy.yaml",
+      "profile": "legacy",
+      "name": "reaction-diffusion-upstream-legacy"
+    },
+    {
+      "path": "experiments/reaction_diffusion/configs/paper.yaml",
+      "profile": "paper",
+      "name": "reaction-diffusion-paper-aligned"
+    },
+    {
+      "path": "experiments/reaction_diffusion/configs/smoke.yaml",
+      "profile": "smoke",
+      "name": "reaction-diffusion-smoke"
+    },
+    {
+      "path": "experiments/regression/configs/smoke.yaml",
+      "profile": "smoke",
+      "name": "regression-x2-smoke"
+    },
+    {
+      "path": "experiments/volterra/configs/corrected.yaml",
+      "profile": "corrected",
+      "name": "volterra-corrected"
+    },
+    {
+      "path": "experiments/volterra/configs/legacy.yaml",
+      "profile": "legacy",
+      "name": "volterra-upstream-legacy"
+    },
+    {
+      "path": "experiments/volterra/configs/smoke.yaml",
+      "profile": "smoke",
+      "name": "volterra-smoke"
+    }
+  ],
+  "files": [
+    {
+      "path": ".github/PULL_REQUEST_TEMPLATE.md",
+      "sha256": "5016415c5ecc610ba6581e134e9ab1e492f704d81daf0bf780997fc31fe6b129",
+      "bytes": 455
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "8437a8545bada4dd13c0ca10ce9e4aa57e2a5dc70e25ad901742f61f65cfcb66",
+      "bytes": 681
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "cf712f2c79729b9eb76347b1d301a60f1d56c7cfadea4a11f7ea71af947fe4eb",
+      "bytes": 161
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "210d5eb2dc3dabdbd67dc2ee2be76f67769a8a83d10810baa13f5e66828afbbb",
+      "bytes": 946
+    },
+    {
+      "path": "CITATION.cff",
+      "sha256": "c5c79b8e552812fe3597e5d06df911f9216d4e789ccb29274d457d27c04d02c5",
+      "bytes": 1260
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "sha256": "b3fdfe3dcdecc11492bed35780f71f3d7e72e239667f0e2f33ee2716fb115b3e",
+      "bytes": 545
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "216b40644431e38905be07bcbd4ae0523381ef8ee39a6f11fa6b72deba4fc9d7",
+      "bytes": 1233
+    },
+    {
+      "path": "NOTICE.md",
+      "sha256": "f8dabcd4819b48a88b8e738c9903c6b5c4318d44e993e36e90cde855fbae2052",
+      "bytes": 2455
+    },
+    {
+      "path": "README.md",
+      "sha256": "42197a2e249c58523eca738be6f952be1906c336eaec16bbc4296c34865f5d9d",
+      "bytes": 5801
+    },
+    {
+      "path": "docs/ACADEMIC_INTEGRITY.md",
+      "sha256": "4a33c21aa03e8ed5e30824d1a3fb845740adfc4894cec00fedae9ce1a5fe135b",
+      "bytes": 2108
+    },
+    {
+      "path": "docs/PAPER_CODE_DIFFERENCES.md",
+      "sha256": "fd0b6f5144014ff9fb034a2dce8015e21bfebb66d51d0312b235f39f9357422f",
+      "bytes": 2334
+    },
+    {
+      "path": "docs/REPRODUCIBILITY.md",
+      "sha256": "29aacb56ca6835d07222d44f228cea12cd8f9dfa38349ab9070f844383673b2e",
+      "bytes": 1804
+    },
+    {
+      "path": "docs/VALIDATION_STATUS.md",
+      "sha256": "3da3d3f3f01026f59283bd44f9d151d3f536e4331a42a8412d3090ddc0c86238",
+      "bytes": 940
+    },
+    {
+      "path": "examples/quickstart.py",
+      "sha256": "278bc5505d248a28be30184f1743f95cb465e39a9e8adc5f9916e4e5e7b29a6e",
+      "bytes": 549
+    },
+    {
+      "path": "experiments/reaction_diffusion/configs/corrected.yaml",
+      "sha256": "871eba33d9080be1c51c1776ef87b6d4384b373f76cba4f68b031adfd753cb7c",
+      "bytes": 1057
+    },
+    {
+      "path": "experiments/reaction_diffusion/configs/legacy.yaml",
+      "sha256": "ad534048d85fc950b8f807dfdb8cea024773415785c5ff871b7a0849450ead69",
+      "bytes": 1116
+    },
+    {
+      "path": "experiments/reaction_diffusion/configs/paper.yaml",
+      "sha256": "88689b6434f925e6d5031892264d0bd6196dfcc646f1e5f9c7ead9e24f71bd32",
+      "bytes": 938
+    },
+    {
+      "path": "experiments/reaction_diffusion/configs/smoke.yaml",
+      "sha256": "d15652c93c8658c933d4193e74dd10284f0408c06014480683e116af55218c69",
+      "bytes": 760
+    },
+    {
+      "path": "experiments/regression/configs/smoke.yaml",
+      "sha256": "4402e28746dee6ec6d74806aaab2410cb8d9b73837c5f86b601bd18c4938c22a",
+      "bytes": 725
+    },
+    {
+      "path": "experiments/volterra/configs/corrected.yaml",
+      "sha256": "85b81f2ac5fcbfa850089ec4a1892824a401e1b46b9e30df65806887c784897b",
+      "bytes": 876
+    },
+    {
+      "path": "experiments/volterra/configs/legacy.yaml",
+      "sha256": "1ed47b105e39106190a1cd34653ba1c2c42a787c0aa4f95574bd68b1f8b1f1e7",
+      "bytes": 862
+    },
+    {
+      "path": "experiments/volterra/configs/smoke.yaml",
+      "sha256": "74144e7b1218dc54290ef230ab94b76c86b61b21e99cea31b3e2b4597c9fe24b",
+      "bytes": 595
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "3f601375f752aa794c79a66bfd3370eff9428209ccf2bb50b72792f78bba0d6d",
+      "bytes": 2017
+    },
+    {
+      "path": "src/symbolic_kan/__init__.py",
+      "sha256": "acf6276279f6d3acc2c8207b05f861a36febfdce4292e8349a2f0448881bebb8",
+      "bytes": 702
+    },
+    {
+      "path": "src/symbolic_kan/cli.py",
+      "sha256": "80c0d13d435a35641ce85650f6c8a0ad046e9057e285b27949bd2aa4993c668f",
+      "bytes": 4917
+    },
+    {
+      "path": "src/symbolic_kan/config.py",
+      "sha256": "c781c80f82eb6d40dcde82bc167eeeb6cbe6a803ae6e2b11d8bb499610c50cc9",
+      "bytes": 5164
+    },
+    {
+      "path": "src/symbolic_kan/export.py",
+      "sha256": "50d383081031f8e23591fefe0553a9553c0e41a984d001d3894a9a0b235ea5af",
+      "bytes": 6647
+    },
+    {
+      "path": "src/symbolic_kan/gates.py",
+      "sha256": "3f50d67363d15bc12619eacc4ef18fd2995c201eacd5cb0a82970c86fa78b304",
+      "bytes": 1214
+    },
+    {
+      "path": "src/symbolic_kan/model.py",
+      "sha256": "b27becc7060c554e7fa4dc44283177414c314900eabc2d66d0e3117d688645d3",
+      "bytes": 12803
+    },
+    {
+      "path": "src/symbolic_kan/primitives.py",
+      "sha256": "a980bd744a5b52e44c9000b96e7d56449798924f3e844242917ac3e8fc48ec13",
+      "bytes": 6733
+    },
+    {
+      "path": "src/symbolic_kan/problems/__init__.py",
+      "sha256": "18cb9a0d847a5df379dff8ff3fdd4de0d071f17901cb89975ee993bbbb87732d",
+      "bytes": 284
+    },
+    {
+      "path": "src/symbolic_kan/problems/reaction_diffusion.py",
+      "sha256": "68fcef55e7e9d58a093dc10ddcd9c30a016f3d425a18fc0ef4b906f2fe903f2a",
+      "bytes": 3402
+    },
+    {
+      "path": "src/symbolic_kan/problems/volterra.py",
+      "sha256": "7ef7fcdbe64588b6ed153d50bd5ce52be83d09f2aa2685f825155a903607c5a8",
+      "bytes": 5017
+    },
+    {
+      "path": "src/symbolic_kan/regularization.py",
+      "sha256": "94e95ca023b077a92ed7695bc949dbe848a8cfa72e32b8e33066d6d8dc53a994",
+      "bytes": 3095
+    },
+    {
+      "path": "src/symbolic_kan/reproducibility.py",
+      "sha256": "9efd15ce438abc99f484b9102c099e5c4f4d4017feb5a524022d417641a50b22",
+      "bytes": 1541
+    },
+    {
+      "path": "src/symbolic_kan/training.py",
+      "sha256": "e76e884754b35df9ed729269a2025c05f5aa25b12adfe89f9aeb99fb467164ac",
+      "bytes": 10395
+    },
+    {
+      "path": "tests/test_attribution.py",
+      "sha256": "28bdd444bb2ba3cb6adb72e4cc5fdb776127d4316427b1e030ecdc71e7cc0ef4",
+      "bytes": 678
+    },
+    {
+      "path": "tests/test_config.py",
+      "sha256": "cd265c3c0b770b83dbaa9fa9235846fa90231d85dca7a59c826b3abc46313d56",
+      "bytes": 402
+    },
+    {
+      "path": "tests/test_model.py",
+      "sha256": "b9c1a98a7cb4c9b539f56b4fd966c75612c331b4ae4ca1e943696aef5f2235e8",
+      "bytes": 1050
+    },
+    {
+      "path": "tests/test_primitives.py",
+      "sha256": "ce8dd91ae303e75b88a7a56ced58b353bb153a48a3b3dd58e046b06af4e23405",
+      "bytes": 469
+    },
+    {
+      "path": "tests/test_regularization.py",
+      "sha256": "cad35791344a618c223dcf58ab28e24b39bf4e4abe6b58d94c0619a28f81fcb2",
+      "bytes": 311
+    },
+    {
+      "path": "tests/test_training.py",
+      "sha256": "4792b1d9a1a35cbf47e92f0e0164648e1ab1d48b842653878f2d9dd4c3448fb8",
+      "bytes": 522
+    },
+    {
+      "path": "tests/test_volterra.py",
+      "sha256": "f018f7cb4f1a5fc82421d07c0cc0f13709dac604f1d1853d14734ae26c85509e",
+      "bytes": 669
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+name: regression-x2-smoke
+profile: smoke
+model:
+  input_dim: 1
+  hidden_units: 3
+  edges_per_unit: 2
+  num_blocks: 2
+  primitives: [x, x2, sin]
+  residual: true
+  primitive_beta: false
+  primitive_bias: true
+  unit_gates: false
+  readout: fixed_sum
+  edge_selection: straight_through
+  dtype: float64
+training:
+  seed: 42
+  adam_epochs: 20
+  learning_rate: 0.005
+  weight_decay: 0.0
+  tau_start: 2.0
+  tau_end: 0.5
+  selection_start_fraction: 0.5
+  selection_weight_end: 0.01
+  entropy_weight: 0.2
+  nms_weight: 0.1
+  lbfgs_steps: 1
+  lbfgs_max_iter: 3
+problem:
+  type: supervised_x2
+  domain: [-1.0, 1.0]
+provenance:
+  purpose: installation and CI smoke test only
+  upstream_commit: 9481a822e73e5a7520c6c0a425a8a402f2878c03

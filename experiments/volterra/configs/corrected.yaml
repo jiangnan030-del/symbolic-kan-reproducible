@@ -1,0 +1,37 @@
+name: volterra-corrected
+profile: corrected
+model:
+  input_dim: 1
+  hidden_units: 6
+  edges_per_unit: 3
+  num_blocks: 3
+  primitives: [sin, cos, exp, x, x2, const, sinh, cosh]
+  primitive_bias: true
+  unit_gates: false
+  readout: fixed_sum
+  edge_selection: soft
+  dtype: float64
+training:
+  seed: 12
+  adam_epochs: 10500
+  learning_rate: 0.005
+  weight_decay: 0.0
+  tau_start: 4.0
+  tau_end: 0.2
+  selection_weight_end: 0.5
+  entropy_weight: 0.9
+  nms_weight: 0.9
+  off_mass_weight: 0.0
+  lbfgs_steps: 500
+  lbfgs_clip_norm: null
+  deterministic_algorithms: true
+problem:
+  type: volterra
+  domain: [0.0, 10.0]
+  kappa: 1.0
+  collocation_count: 1000
+  quadrature_order: 64
+  quadrature_mode: mapped_variable_limit
+provenance:
+  note: derivative corrected profile; results must not be attributed to upstream authors
+  upstream_commit: 9481a822e73e5a7520c6c0a425a8a402f2878c03

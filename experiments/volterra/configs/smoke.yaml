@@ -1,0 +1,29 @@
+name: volterra-smoke
+profile: smoke
+model:
+  input_dim: 1
+  hidden_units: 3
+  edges_per_unit: 2
+  num_blocks: 2
+  primitives: [x, exp, sinh, cosh]
+  readout: fixed_sum
+  unit_gates: false
+  dtype: float64
+training:
+  seed: 12
+  adam_epochs: 5
+  learning_rate: 0.005
+  weight_decay: 0.0
+  tau_start: 2.0
+  tau_end: 0.5
+  selection_weight_end: 0.01
+  lbfgs_steps: 0
+problem:
+  type: volterra
+  domain: [0.0, 1.0]
+  kappa: 1.0
+  collocation_count: 32
+  quadrature_order: 16
+provenance:
+  purpose: code-path smoke test, not a paper result
+  upstream_commit: 9481a822e73e5a7520c6c0a425a8a402f2878c03
