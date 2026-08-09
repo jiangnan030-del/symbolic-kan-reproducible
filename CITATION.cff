@@ -5,8 +5,8 @@ message: >-
   package by version and commit.
 title: "symbolic-kan-reproducible: an unofficial attributed Python refactor"
 type: software
-version: 0.1.0-alpha.1
-date-released: 2026-08-08
+version: 0.1.0-alpha.2
+date-released: 2026-08-09
 repository-code: "https://github.com/jiangnan030-del/symbolic-kan-reproducible"
 license: MIT
 authors:
