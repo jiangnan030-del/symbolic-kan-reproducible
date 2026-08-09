@@ -26,6 +26,8 @@ from .inspection import (
 from .model import GateState, SymbolicKAN
 from .training import FitResult, fit_supervised
 
+suggest_primitives = rank_primitive_candidates
+
 __all__ = [
     "CHECKPOINT_SCHEMA_VERSION",
     "CheckpointLoadResult",
@@ -48,6 +50,7 @@ __all__ = [
     "rank_primitive_candidates",
     "save_checkpoint",
     "structure_diagnostics",
+    "suggest_primitives",
     "write_structure_svg",
     "write_symbolic_report",
 ]

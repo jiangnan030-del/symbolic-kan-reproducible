@@ -6,6 +6,7 @@ from symbolic_kan import (
     prune_edges,
     prune_units,
     rank_primitive_candidates,
+    suggest_primitives,
     write_symbolic_report,
 )
 
@@ -28,6 +29,7 @@ def test_candidate_ranking_is_complete_and_bounded() -> None:
     model = _model()
     candidates = rank_primitive_candidates(model, top_k=2)
     assert len(candidates) == 2 * 2 * 2
+    assert len(suggest_primitives(model, top_k=2)) == len(candidates)
     assert {candidate.rank for candidate in candidates} == {1, 2}
     assert all(0.0 <= candidate.probability <= 1.0 for candidate in candidates)
 
