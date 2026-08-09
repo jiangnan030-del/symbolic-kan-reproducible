@@ -23,6 +23,7 @@ nav:
   - Paper/code differences: PAPER_CODE_DIFFERENCES.md
   - Academic integrity: ACADEMIC_INTEGRITY.md
   - Related work: RELATED_WORK.md
+  - Source manifest scope: SOURCE_MANIFEST_SCOPE.md
   - Roadmap: ROADMAP.md
 
 markdown_extensions:

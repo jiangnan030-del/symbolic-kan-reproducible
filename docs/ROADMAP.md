@@ -2,7 +2,7 @@
 
 This roadmap applies to the unofficial `symbolic-kan-reproducible` derivative package. It does not describe commitments by the upstream Symbolic-KAN authors.
 
-## 0.1 alpha — package and provenance
+## 0.1.0a1 — package and provenance
 
 - [x] Standard `src/` package layout and CLI.
 - [x] Deterministic evaluation and structure hardening.
@@ -10,8 +10,19 @@ This roadmap applies to the unofficial `symbolic-kan-reproducible` derivative pa
 - [x] Pairwise NMS, safe primitives, and mapped Volterra quadrature.
 - [x] Unit tests, CI, attribution, citation, and academic-integrity guidance.
 - [x] Repository cover, bilingual overview, badges, and community templates.
-- [ ] Confirm the full CI matrix on Python 3.10 and 3.12.
-- [ ] Publish signed `v0.1.0a1` pre-release artifacts.
+- [x] Publish the `v0.1.0a1` pre-release.
+
+## 0.1.0a2 — inspectability and discovery
+
+- [x] Rank native primitive candidates from deterministic gate evidence.
+- [x] Add confidence-aware unit and edge pruning.
+- [x] Add schema-versioned, device-agnostic checkpoints.
+- [x] Export JSON, expression text, selected-structure SVG, and portable HTML reports.
+- [x] Add `inspect`, `prune`, `plot`, and `export` CLI stages.
+- [x] Add a CPU tutorial, related-work boundary, and MkDocs/Pages workflow.
+- [x] Keep PyKAN inspiration separate from code origin; no PyKAN source copied.
+- [ ] Confirm the full CI matrix on Python 3.10 and 3.12 for the final a2 commit.
+- [ ] Run multi-seed stability and derivative-error validation before tagging a2.
 
 ## 0.1 stable — validation and distribution
 
@@ -24,6 +35,7 @@ This roadmap applies to the unofficial `symbolic-kan-reproducible` derivative pa
 ## 0.2 — research extensions
 
 - [ ] Add PySINDy/PySR comparison adapters.
+- [ ] Add optional PyKAN teacher/benchmark integration with pinned versions and third-party notices where required.
 - [ ] Add dimensional and monotonicity constraints.
 - [ ] Report structure-selection frequency across seeds.
 - [ ] Add documented adapters for new scientific problems.
