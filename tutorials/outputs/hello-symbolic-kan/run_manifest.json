@@ -1,0 +1,89 @@
+{
+  "package": "symbolic-kan-reproducible",
+  "upstream_repository": "https://github.com/sfaroughi3/Pub_Symbolic_KANs",
+  "upstream_commit": "9481a822e73e5a7520c6c0a425a8a402f2878c03",
+  "model": {
+    "input_dim": 2,
+    "hidden_units": 4,
+    "edges_per_unit": 2,
+    "num_blocks": 2,
+    "primitives": [
+      "x",
+      "x2",
+      "sin",
+      "cos",
+      "exp"
+    ],
+    "residual": true,
+    "projection_bias": true,
+    "primitive_beta": false,
+    "primitive_bias": true,
+    "unit_gates": false,
+    "readout": "fixed_sum",
+    "readout_bias": false,
+    "edge_selection": "straight_through",
+    "edge_temperature": 1.0,
+    "gumbel_hard": false,
+    "inverse_parameter_count": 0,
+    "inverse_parameter_init": 0.1,
+    "inverse_parameter_constraint": "unconstrained",
+    "dtype": "float64"
+  },
+  "training": {
+    "seed": 42,
+    "adam_epochs": 100,
+    "learning_rate": 0.005,
+    "weight_decay": 0.0,
+    "gate_learning_rate_scale": 0.2,
+    "gate_weight_decay": 0.01,
+    "tau_start": 4.0,
+    "tau_end": 0.2,
+    "selection_start_fraction": 0.5,
+    "selection_weight_start": 0.0,
+    "selection_weight_end": 0.5,
+    "sharpness_weight": 1.0,
+    "entropy_weight": 0.9,
+    "nms_weight": 0.9,
+    "off_mass_weight": 0.0,
+    "unit_gate_weight": 0.0,
+    "primitive_bias_weight": 0.0001,
+    "gradient_clip_norm": 5.0,
+    "validate_every": 1,
+    "lbfgs_steps": 2,
+    "lbfgs_learning_rate": 0.3,
+    "lbfgs_max_iter": 15,
+    "lbfgs_history_size": 50,
+    "lbfgs_clip_norm": null,
+    "deterministic_algorithms": false
+  },
+  "environment": {
+    "python": "3.12.6 (tags/v3.12.6:a4a2d2b, Sep  6 2024, 20:11:23) [MSC v.1940 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.22631-SP0",
+    "torch": "2.12.0+cpu",
+    "cuda_available": false,
+    "cuda_version": null,
+    "mps_available": false,
+    "default_dtype": "torch.float32",
+    "deterministic_algorithms": false
+  },
+  "optimizer_groups": [
+    {
+      "lr": 0.0,
+      "weight_decay": 0.0,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "parameter_count": 304
+    },
+    {
+      "lr": 0.0,
+      "weight_decay": 0.01,
+      "betas": [
+        0.0,
+        0.999
+      ],
+      "parameter_count": 80
+    }
+  ]
+}

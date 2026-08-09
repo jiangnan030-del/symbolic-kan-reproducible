@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Symbolic-KAN audit report</title>
+<style>
+:root { --text:#2C2C2B; --muted:#7D7A75; --border:#E6E5E3; --soft:#F9F8F7; --blue:#2783DE; }
+* { box-sizing:border-box; } body { margin:0; background:#fff; color:var(--text); font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif; }
+main { max-width:1080px; margin:0 auto; padding:48px 32px 64px; }
+.eyebrow { color:#1D6FB8; font-size:13px; font-weight:750; letter-spacing:.1em; }
+h1 { margin:8px 0 4px; font-size:40px; line-height:1.15; } .muted { color:var(--muted); }
+.grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:32px 0; }
+.card { border:1px solid var(--border); border-radius:12px; padding:18px; background:var(--soft); }
+.value { display:block; color:var(--blue); font-size:28px; font-weight:750; }
+section { margin-top:36px; } img { width:100%; border:1px solid var(--border); border-radius:12px; }
+pre { overflow:auto; padding:18px; border:1px solid var(--border); border-radius:10px; background:var(--soft); }
+table { width:100%; border-collapse:collapse; } th,td { padding:10px 12px; border-bottom:1px solid var(--border); text-align:left; } th { color:var(--muted); font-size:13px; }
+.notice { margin-top:32px; padding:16px; border-left:4px solid #D5803B; background:#FBEBDE; }
+@media (max-width:700px) { main { padding:28px 18px; } .grid { grid-template-columns:1fr; } h1 { font-size:32px; } }
+</style></head><body><main>
+<div class="eyebrow">UNOFFICIAL · ATTRIBUTED · AUDITABLE</div>
+<h1>Symbolic-KAN audit report</h1>
+<p class="muted">Deterministic structure, native candidate evidence, and export metadata.</p>
+<div class="grid">
+<div class="card"><span class="value">2</span>blocks</div>
+<div class="card"><span class="value">6</span>active units</div>
+<div class="card"><span class="value">yes</span>hardened</div>
+</div>
+<section><h2>Selected structure</h2><img src="structure.svg" alt="Selected Symbolic-KAN structure"></section>
+<section><h2>Expression</h2><pre>(((1.81151*(cos(1.81648*(0.139638*(x) + 0.056512*(y) + 0.00498072) + 0)) + -0.000976941)) + (1.7964*(cos(1.79991*(0.31708*((1.81151*(cos(1.81648*(0.139638*(x) + 0.056512*(y) + 0.00498072) + 0)) + -0.000976941)) + 0.581786*((1.76875*(sin(1.7767*(0.860695*(x) + -0.277656*(y) + -0.0227975) + 0)) + -0.0246404)) + 0.128092*((1.80284*(1) + -0.00539271)) + -0.0102734) + 0)) + -0.00802151)) + (((1.76875*(sin(1.7767*(0.860695*(x) + -0.277656*(y) + -0.0227975) + 0)) + -0.0246404)) + (1.80063*(1.80063*(0.400268*((1.81151*(cos(1.81648*(0.139638*(x) + 0.056512*(y) + 0.00498072) + 0)) + -0.000976941)) + -0.555909*((1.76875*(sin(1.7767*(0.860695*(x) + -0.277656*(y) + -0.0227975) + 0)) + -0.0246404)) + -0.209201*((1.80284*(1) + -0.00539271)) + 0.0169394) + 0) + -0.0166895)) + (((1.80284*(1) + -0.00539271)) + (1.77794*(1) + -0.0182566))</pre></section>
+<section><h2>Selected units</h2><table><thead><tr><th>Block</th><th>Unit</th><th>Primitive</th><th>Edge</th><th>Status</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>cos</td><td>0</td><td>active</td></tr><tr><td>0</td><td>1</td><td>sin</td><td>1</td><td>active</td></tr><tr><td>0</td><td>2</td><td>const</td><td>0</td><td>active</td></tr><tr><td>1</td><td>0</td><td>cos</td><td>1</td><td>active</td></tr><tr><td>1</td><td>1</td><td>x</td><td>1</td><td>active</td></tr><tr><td>1</td><td>2</td><td>const</td><td>1</td><td>active</td></tr></tbody></table></section>
+<section><h2>Metadata</h2><pre>{
+  &quot;experiment&quot;: &quot;laplace-2d-smoke&quot;,
+  &quot;profile&quot;: &quot;smoke&quot;,
+  &quot;scope&quot;: &quot;paper-described derivative Laplace adapter; not upstream code&quot;
+}</pre></section>
+<div class="notice"><strong>Scientific-integrity boundary.</strong> This report was produced by an unofficial derivative package. It is not an upstream paper result and does not imply endorsement by the original authors.</div>
+</main></body></html>

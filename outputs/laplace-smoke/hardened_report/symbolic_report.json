@@ -1,0 +1,686 @@
+{
+  "schema_version": 1,
+  "package": "symbolic-kan-reproducible",
+  "package_version": "0.1.0a2",
+  "status": "unofficial derivative",
+  "provenance": {
+    "upstream_repository": "https://github.com/sfaroughi3/Pub_Symbolic_KANs",
+    "upstream_commit": "9481a822e73e5a7520c6c0a425a8a402f2878c03"
+  },
+  "summary": {
+    "hardened": true,
+    "blocks": 2,
+    "active_units": 6
+  },
+  "structure": {
+    "package": "symbolic-kan-reproducible",
+    "upstream_commit": "9481a822e73e5a7520c6c0a425a8a402f2878c03",
+    "hardened": true,
+    "blocks": [
+      {
+        "block": 0,
+        "residual": true,
+        "units": [
+          {
+            "unit": 0,
+            "alive": true,
+            "edge": 0,
+            "primitive": "cos",
+            "projection_weight": [
+              0.13963824985961346,
+              0.0565119925347322
+            ],
+            "projection_bias": 0.00498072488531774,
+            "gamma": 1.8164774963360997,
+            "beta": 0.0,
+            "amplitude": 1.8115147021175804,
+            "bias": -0.0009769407159404267
+          },
+          {
+            "unit": 1,
+            "alive": true,
+            "edge": 1,
+            "primitive": "sin",
+            "projection_weight": [
+              0.8606953838697599,
+              -0.2776564412222957
+            ],
+            "projection_bias": -0.022797506019327975,
+            "gamma": 1.776704713817277,
+            "beta": 0.0,
+            "amplitude": 1.7687484722223248,
+            "bias": -0.02464043135824794
+          },
+          {
+            "unit": 2,
+            "alive": true,
+            "edge": 0,
+            "primitive": "const",
+            "projection_weight": [
+              0.1666644465539241,
+              0.0885674629655274
+            ],
+            "projection_bias": -0.019512998771893213,
+            "gamma": 1.8131033086514337,
+            "beta": 0.0,
+            "amplitude": 1.8028413675649806,
+            "bias": -0.005392705518814493
+          }
+        ]
+      },
+      {
+        "block": 1,
+        "residual": true,
+        "units": [
+          {
+            "unit": 0,
+            "alive": true,
+            "edge": 1,
+            "primitive": "cos",
+            "projection_weight": [
+              0.317079900745285,
+              0.5817857281426937,
+              0.12809200583507535
+            ],
+            "projection_bias": -0.0102734129618324,
+            "gamma": 1.7999070944683608,
+            "beta": 0.0,
+            "amplitude": 1.7964013520825164,
+            "bias": -0.008021513406199292
+          },
+          {
+            "unit": 1,
+            "alive": true,
+            "edge": 1,
+            "primitive": "x",
+            "projection_weight": [
+              0.4002684914797019,
+              -0.5559085916184224,
+              -0.20920080346094463
+            ],
+            "projection_bias": 0.016939396640325274,
+            "gamma": 1.800627462309699,
+            "beta": 0.0,
+            "amplitude": 1.800627462309699,
+            "bias": -0.01668949769151802
+          },
+          {
+            "unit": 2,
+            "alive": true,
+            "edge": 1,
+            "primitive": "const",
+            "projection_weight": [
+              0.20674688691284313,
+              0.138423474426738,
+              0.3860078499909422
+            ],
+            "projection_bias": -0.0014440198970044828,
+            "gamma": 1.8131033086514337,
+            "beta": 0.0,
+            "amplitude": 1.7779422966153984,
+            "bias": -0.018256599852585997
+          }
+        ]
+      }
+    ],
+    "readout": {
+      "type": "fixed_sum"
+    },
+    "inverse_parameters": []
+  },
+  "diagnostics": {
+    "top_k": 3,
+    "complexity_weight": 0.02,
+    "blocks": [
+      {
+        "block": 0,
+        "units": [
+          {
+            "unit": 0,
+            "unit_probability": 1.0,
+            "selected_edge": 0,
+            "edges": [
+              {
+                "edge": 0,
+                "confidence": 1.0,
+                "selection_probability": 1.0,
+                "candidates": [
+                  {
+                    "block": 0,
+                    "unit": 0,
+                    "edge": 0,
+                    "rank": 1,
+                    "primitive": "cos",
+                    "probability": 1.0,
+                    "complexity": 2.0,
+                    "score": 0.96
+                  },
+                  {
+                    "block": 0,
+                    "unit": 0,
+                    "edge": 0,
+                    "rank": 2,
+                    "primitive": "const",
+                    "probability": 0.0,
+                    "complexity": 0.5,
+                    "score": -0.01
+                  },
+                  {
+                    "block": 0,
+                    "unit": 0,
+                    "edge": 0,
+                    "rank": 3,
+                    "primitive": "x",
+                    "probability": 0.0,
+                    "complexity": 1.0,
+                    "score": -0.02
+                  }
+                ]
+              },
+              {
+                "edge": 1,
+                "confidence": 1.0,
+                "selection_probability": 0.0,
+                "candidates": [
+                  {
+                    "block": 0,
+                    "unit": 0,
+                    "edge": 1,
+                    "rank": 1,
+                    "primitive": "const",
+                    "probability": 1.0,
+                    "complexity": 0.5,
+                    "score": 0.99
+                  },
+                  {
+                    "block": 0,
+                    "unit": 0,
+                    "edge": 1,
+                    "rank": 2,
+                    "primitive": "x",
+                    "probability": 0.0,
+                    "complexity": 1.0,
+                    "score": -0.02
+                  },
+                  {
+                    "block": 0,
+                    "unit": 0,
+                    "edge": 1,
+                    "rank": 3,
+                    "primitive": "x2",
+                    "probability": 0.0,
+                    "complexity": 1.5,
+                    "score": -0.03
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unit": 1,
+            "unit_probability": 1.0,
+            "selected_edge": 1,
+            "edges": [
+              {
+                "edge": 0,
+                "confidence": 1.0,
+                "selection_probability": 0.0,
+                "candidates": [
+                  {
+                    "block": 0,
+                    "unit": 1,
+                    "edge": 0,
+                    "rank": 1,
+                    "primitive": "sinh",
+                    "probability": 1.0,
+                    "complexity": 3.0,
+                    "score": 0.94
+                  },
+                  {
+                    "block": 0,
+                    "unit": 1,
+                    "edge": 0,
+                    "rank": 2,
+                    "primitive": "const",
+                    "probability": 0.0,
+                    "complexity": 0.5,
+                    "score": -0.01
+                  },
+                  {
+                    "block": 0,
+                    "unit": 1,
+                    "edge": 0,
+                    "rank": 3,
+                    "primitive": "x",
+                    "probability": 0.0,
+                    "complexity": 1.0,
+                    "score": -0.02
+                  }
+                ]
+              },
+              {
+                "edge": 1,
+                "confidence": 1.0,
+                "selection_probability": 1.0,
+                "candidates": [
+                  {
+                    "block": 0,
+                    "unit": 1,
+                    "edge": 1,
+                    "rank": 1,
+                    "primitive": "sin",
+                    "probability": 1.0,
+                    "complexity": 2.0,
+                    "score": 0.96
+                  },
+                  {
+                    "block": 0,
+                    "unit": 1,
+                    "edge": 1,
+                    "rank": 2,
+                    "primitive": "const",
+                    "probability": 0.0,
+                    "complexity": 0.5,
+                    "score": -0.01
+                  },
+                  {
+                    "block": 0,
+                    "unit": 1,
+                    "edge": 1,
+                    "rank": 3,
+                    "primitive": "x",
+                    "probability": 0.0,
+                    "complexity": 1.0,
+                    "score": -0.02
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unit": 2,
+            "unit_probability": 1.0,
+            "selected_edge": 0,
+            "edges": [
+              {
+                "edge": 0,
+                "confidence": 1.0,
+                "selection_probability": 1.0,
+                "candidates": [
+                  {
+                    "block": 0,
+                    "unit": 2,
+                    "edge": 0,
+                    "rank": 1,
+                    "primitive": "const",
+                    "probability": 1.0,
+                    "complexity": 0.5,
+                    "score": 0.99
+                  },
+                  {
+                    "block": 0,
+                    "unit": 2,
+                    "edge": 0,
+                    "rank": 2,
+                    "primitive": "x",
+                    "probability": 0.0,
+                    "complexity": 1.0,
+                    "score": -0.02
+                  },
+                  {
+                    "block": 0,
+                    "unit": 2,
+                    "edge": 0,
+                    "rank": 3,
+                    "primitive": "x2",
+                    "probability": 0.0,
+                    "complexity": 1.5,
+                    "score": -0.03
+                  }
+                ]
+              },
+              {
+                "edge": 1,
+                "confidence": 1.0,
+                "selection_probability": 0.0,
+                "candidates": [
+                  {
+                    "block": 0,
+                    "unit": 2,
+                    "edge": 1,
+                    "rank": 1,
+                    "primitive": "sinh",
+                    "probability": 1.0,
+                    "complexity": 3.0,
+                    "score": 0.94
+                  },
+                  {
+                    "block": 0,
+                    "unit": 2,
+                    "edge": 1,
+                    "rank": 2,
+                    "primitive": "const",
+                    "probability": 0.0,
+                    "complexity": 0.5,
+                    "score": -0.01
+                  },
+                  {
+                    "block": 0,
+                    "unit": 2,
+                    "edge": 1,
+                    "rank": 3,
+                    "primitive": "x",
+                    "probability": 0.0,
+                    "complexity": 1.0,
+                    "score": -0.02
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "block": 1,
+        "units": [
+          {
+            "unit": 0,
+            "unit_probability": 1.0,
+            "selected_edge": 1,
+            "edges": [
+              {
+                "edge": 0,
+                "confidence": 1.0,
+                "selection_probability": 0.0,
+                "candidates": [
+                  {
+                    "block": 1,
+                    "unit": 0,
+                    "edge": 0,
+                    "rank": 1,
+                    "primitive": "sin",
+                    "probability": 1.0,
+                    "complexity": 2.0,
+                    "score": 0.96
+                  },
+                  {
+                    "block": 1,
+                    "unit": 0,
+                    "edge": 0,
+                    "rank": 2,
+                    "primitive": "const",
+                    "probability": 0.0,
+                    "complexity": 0.5,
+                    "score": -0.01
+                  },
+                  {
+                    "block": 1,
+                    "unit": 0,
+                    "edge": 0,
+                    "rank": 3,
+                    "primitive": "x",
+                    "probability": 0.0,
+                    "complexity": 1.0,
+                    "score": -0.02
+                  }
+                ]
+              },
+              {
+                "edge": 1,
+                "confidence": 1.0,
+                "selection_probability": 1.0,
+                "candidates": [
+                  {
+                    "block": 1,
+                    "unit": 0,
+                    "edge": 1,
+                    "rank": 1,
+                    "primitive": "cos",
+                    "probability": 1.0,
+                    "complexity": 2.0,
+                    "score": 0.96
+                  },
+                  {
+                    "block": 1,
+                    "unit": 0,
+                    "edge": 1,
+                    "rank": 2,
+                    "primitive": "const",
+                    "probability": 0.0,
+                    "complexity": 0.5,
+                    "score": -0.01
+                  },
+                  {
+                    "block": 1,
+                    "unit": 0,
+                    "edge": 1,
+                    "rank": 3,
+                    "primitive": "x",
+                    "probability": 0.0,
+                    "complexity": 1.0,
+                    "score": -0.02
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unit": 1,
+            "unit_probability": 1.0,
+            "selected_edge": 1,
+            "edges": [
+              {
+                "edge": 0,
+                "confidence": 1.0,
+                "selection_probability": 0.0,
+                "candidates": [
+                  {
+                    "block": 1,
+                    "unit": 1,
+                    "edge": 0,
+                    "rank": 1,
+                    "primitive": "cosh",
+                    "probability": 1.0,
+                    "complexity": 3.0,
+                    "score": 0.94
+                  },
+                  {
+                    "block": 1,
+                    "unit": 1,
+                    "edge": 0,
+                    "rank": 2,
+                    "primitive": "const",
+                    "probability": 0.0,
+                    "complexity": 0.5,
+                    "score": -0.01
+                  },
+                  {
+                    "block": 1,
+                    "unit": 1,
+                    "edge": 0,
+                    "rank": 3,
+                    "primitive": "x",
+                    "probability": 0.0,
+                    "complexity": 1.0,
+                    "score": -0.02
+                  }
+                ]
+              },
+              {
+                "edge": 1,
+                "confidence": 1.0,
+                "selection_probability": 1.0,
+                "candidates": [
+                  {
+                    "block": 1,
+                    "unit": 1,
+                    "edge": 1,
+                    "rank": 1,
+                    "primitive": "x",
+                    "probability": 1.0,
+                    "complexity": 1.0,
+                    "score": 0.98
+                  },
+                  {
+                    "block": 1,
+                    "unit": 1,
+                    "edge": 1,
+                    "rank": 2,
+                    "primitive": "const",
+                    "probability": 0.0,
+                    "complexity": 0.5,
+                    "score": -0.01
+                  },
+                  {
+                    "block": 1,
+                    "unit": 1,
+                    "edge": 1,
+                    "rank": 3,
+                    "primitive": "x2",
+                    "probability": 0.0,
+                    "complexity": 1.5,
+                    "score": -0.03
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "unit": 2,
+            "unit_probability": 1.0,
+            "selected_edge": 1,
+            "edges": [
+              {
+                "edge": 0,
+                "confidence": 1.0,
+                "selection_probability": 0.0,
+                "candidates": [
+                  {
+                    "block": 1,
+                    "unit": 2,
+                    "edge": 0,
+                    "rank": 1,
+                    "primitive": "sin",
+                    "probability": 1.0,
+                    "complexity": 2.0,
+                    "score": 0.96
+                  },
+                  {
+                    "block": 1,
+                    "unit": 2,
+                    "edge": 0,
+                    "rank": 2,
+                    "primitive": "const",
+                    "probability": 0.0,
+                    "complexity": 0.5,
+                    "score": -0.01
+                  },
+                  {
+                    "block": 1,
+                    "unit": 2,
+                    "edge": 0,
+                    "rank": 3,
+                    "primitive": "x",
+                    "probability": 0.0,
+                    "complexity": 1.0,
+                    "score": -0.02
+                  }
+                ]
+              },
+              {
+                "edge": 1,
+                "confidence": 1.0,
+                "selection_probability": 1.0,
+                "candidates": [
+                  {
+                    "block": 1,
+                    "unit": 2,
+                    "edge": 1,
+                    "rank": 1,
+                    "primitive": "const",
+                    "probability": 1.0,
+                    "complexity": 0.5,
+                    "score": 0.99
+                  },
+                  {
+                    "block": 1,
+                    "unit": 2,
+                    "edge": 1,
+                    "rank": 2,
+                    "primitive": "x",
+                    "probability": 0.0,
+                    "complexity": 1.0,
+                    "score": -0.02
+                  },
+                  {
+                    "block": 1,
+                    "unit": 2,
+                    "edge": 1,
+                    "rank": 3,
+                    "primitive": "x2",
+                    "probability": 0.0,
+                    "complexity": 1.5,
+                    "score": -0.03
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "expression": "(((1.81151*(cos(1.81648*(0.139638*(x) + 0.056512*(y) + 0.00498072) + 0)) + -0.000976941)) + (1.7964*(cos(1.79991*(0.31708*((1.81151*(cos(1.81648*(0.139638*(x) + 0.056512*(y) + 0.00498072) + 0)) + -0.000976941)) + 0.581786*((1.76875*(sin(1.7767*(0.860695*(x) + -0.277656*(y) + -0.0227975) + 0)) + -0.0246404)) + 0.128092*((1.80284*(1) + -0.00539271)) + -0.0102734) + 0)) + -0.00802151)) + (((1.76875*(sin(1.7767*(0.860695*(x) + -0.277656*(y) + -0.0227975) + 0)) + -0.0246404)) + (1.80063*(1.80063*(0.400268*((1.81151*(cos(1.81648*(0.139638*(x) + 0.056512*(y) + 0.00498072) + 0)) + -0.000976941)) + -0.555909*((1.76875*(sin(1.7767*(0.860695*(x) + -0.277656*(y) + -0.0227975) + 0)) + -0.0246404)) + -0.209201*((1.80284*(1) + -0.00539271)) + 0.0169394) + 0) + -0.0166895)) + (((1.80284*(1) + -0.00539271)) + (1.77794*(1) + -0.0182566))",
+  "history": [
+    {
+      "phase": "adam",
+      "step": 1,
+      "loss": 1622.0847348162147,
+      "pde": 1565.1963991750374,
+      "boundary": 56.888335641177285,
+      "selection": 2.1574394385127653,
+      "temperature": 2.0
+    },
+    {
+      "phase": "adam",
+      "step": 2,
+      "loss": 29.371582025723043,
+      "pde": 0.9584975909298756,
+      "boundary": 28.41308427483476,
+      "selection": 2.1339327108042747,
+      "temperature": 1.7803300768136978
+    },
+    {
+      "phase": "adam",
+      "step": 3,
+      "loss": 6245.559086248999,
+      "pde": 1466.405979350474,
+      "boundary": 4779.150919255799,
+      "selection": 1.9684583444327124,
+      "temperature": 1.2499999672164588
+    },
+    {
+      "phase": "adam",
+      "step": 4,
+      "loss": 7384.833399261265,
+      "pde": 7267.626635951286,
+      "boundary": 117.20013297770689,
+      "selection": 1.4916227563423945,
+      "temperature": 0.7196699231863022
+    },
+    {
+      "phase": "adam",
+      "step": 5,
+      "loss": 85.20611029464844,
+      "pde": 34.85185085676802,
+      "boundary": 50.341872811092905,
+      "selection": 1.2385226773647444,
+      "temperature": 0.5
+    }
+  ],
+  "metadata": {
+    "experiment": "laplace-2d-smoke",
+    "profile": "smoke",
+    "scope": "paper-described derivative Laplace adapter; not upstream code"
+  }
+}

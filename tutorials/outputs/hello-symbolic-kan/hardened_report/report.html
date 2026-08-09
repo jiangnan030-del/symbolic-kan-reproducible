@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Symbolic-KAN audit report</title>
+<style>
+:root { --text:#2C2C2B; --muted:#7D7A75; --border:#E6E5E3; --soft:#F9F8F7; --blue:#2783DE; }
+* { box-sizing:border-box; } body { margin:0; background:#fff; color:var(--text); font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif; }
+main { max-width:1080px; margin:0 auto; padding:48px 32px 64px; }
+.eyebrow { color:#1D6FB8; font-size:13px; font-weight:750; letter-spacing:.1em; }
+h1 { margin:8px 0 4px; font-size:40px; line-height:1.15; } .muted { color:var(--muted); }
+.grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:32px 0; }
+.card { border:1px solid var(--border); border-radius:12px; padding:18px; background:var(--soft); }
+.value { display:block; color:var(--blue); font-size:28px; font-weight:750; }
+section { margin-top:36px; } img { width:100%; border:1px solid var(--border); border-radius:12px; }
+pre { overflow:auto; padding:18px; border:1px solid var(--border); border-radius:10px; background:var(--soft); }
+table { width:100%; border-collapse:collapse; } th,td { padding:10px 12px; border-bottom:1px solid var(--border); text-align:left; } th { color:var(--muted); font-size:13px; }
+.notice { margin-top:32px; padding:16px; border-left:4px solid #D5803B; background:#FBEBDE; }
+@media (max-width:700px) { main { padding:28px 18px; } .grid { grid-template-columns:1fr; } h1 { font-size:32px; } }
+</style></head><body><main>
+<div class="eyebrow">UNOFFICIAL · ATTRIBUTED · AUDITABLE</div>
+<h1>Symbolic-KAN audit report</h1>
+<p class="muted">Deterministic structure, native candidate evidence, and export metadata.</p>
+<div class="grid">
+<div class="card"><span class="value">2</span>blocks</div>
+<div class="card"><span class="value">8</span>active units</div>
+<div class="card"><span class="value">yes</span>hardened</div>
+</div>
+<section><h2>Selected structure</h2><img src="structure.svg" alt="Selected Symbolic-KAN structure"></section>
+<section><h2>Expression</h2><pre>(((1.84245*(cos(1.87387*(-0.146034*(x_0) + -0.174367*(x_1) + -0.00824428) + 0)) + -0.00354667)) + (1.91351*(1.91351*(-0.196486*((1.84245*(cos(1.87387*(-0.146034*(x_0) + -0.174367*(x_1) + -0.00824428) + 0)) + -0.00354667)) + -0.123332*((1.96384*(cos(2.05106*(-0.0515233*(x_0) + -1.18051*(x_1) + 0.0313668) + 0)) + -0.150698)) + -0.0613512*((1.78331*(1.78331*(-0.527122*(x_0) + -0.0177246*(x_1) + -0.0455767) + 0) + -0.0802562)) + -0.147104*((1.95005*(sin(1.95824*(0.262891*(x_0) + 0.105123*(x_1) + -0.254074) + 0)) + -0.146986)) + 0.073953) + 0) + -0.0796828)) + (((1.96384*(cos(2.05106*(-0.0515233*(x_0) + -1.18051*(x_1) + 0.0313668) + 0)) + -0.150698)) + (1.95587*(1.95587*(0.0832179*((1.84245*(cos(1.87387*(-0.146034*(x_0) + -0.174367*(x_1) + -0.00824428) + 0)) + -0.00354667)) + -0.340546*((1.96384*(cos(2.05106*(-0.0515233*(x_0) + -1.18051*(x_1) + 0.0313668) + 0)) + -0.150698)) + 0.0295921*((1.78331*(1.78331*(-0.527122*(x_0) + -0.0177246*(x_1) + -0.0455767) + 0) + -0.0802562)) + -0.0936306*((1.95005*(sin(1.95824*(0.262891*(x_0) + 0.105123*(x_1) + -0.254074) + 0)) + -0.146986)) + 0.038952) + 0) + -0.128155)) + (((1.78331*(1.78331*(-0.527122*(x_0) + -0.0177246*(x_1) + -0.0455767) + 0) + -0.0802562)) + (1.84586*(sin(1.90865*(0.197751*((1.84245*(cos(1.87387*(-0.146034*(x_0) + -0.174367*(x_1) + -0.00824428) + 0)) + -0.00354667)) + 0.126801*((1.96384*(cos(2.05106*(-0.0515233*(x_0) + -1.18051*(x_1) + 0.0313668) + 0)) + -0.150698)) + -0.271696*((1.78331*(1.78331*(-0.527122*(x_0) + -0.0177246*(x_1) + -0.0455767) + 0) + -0.0802562)) + -0.0948753*((1.95005*(sin(1.95824*(0.262891*(x_0) + 0.105123*(x_1) + -0.254074) + 0)) + -0.146986)) + -0.0415603) + 0)) + -0.11165)) + (((1.95005*(sin(1.95824*(0.262891*(x_0) + 0.105123*(x_1) + -0.254074) + 0)) + -0.146986)) + (2.15874*(sin(2.09354*(-0.06876*((1.84245*(cos(1.87387*(-0.146034*(x_0) + -0.174367*(x_1) + -0.00824428) + 0)) + -0.00354667)) + -0.0307823*((1.96384*(cos(2.05106*(-0.0515233*(x_0) + -1.18051*(x_1) + 0.0313668) + 0)) + -0.150698)) + -0.822564*((1.78331*(1.78331*(-0.527122*(x_0) + -0.0177246*(x_1) + -0.0455767) + 0) + -0.0802562)) + -0.00272173*((1.95005*(sin(1.95824*(0.262891*(x_0) + 0.105123*(x_1) + -0.254074) + 0)) + -0.146986)) + -0.0792901) + 0)) + -0.11274))</pre></section>
+<section><h2>Selected units</h2><table><thead><tr><th>Block</th><th>Unit</th><th>Primitive</th><th>Edge</th><th>Status</th></tr></thead><tbody><tr><td>0</td><td>0</td><td>cos</td><td>1</td><td>active</td></tr><tr><td>0</td><td>1</td><td>cos</td><td>1</td><td>active</td></tr><tr><td>0</td><td>2</td><td>x</td><td>0</td><td>active</td></tr><tr><td>0</td><td>3</td><td>sin</td><td>1</td><td>active</td></tr><tr><td>1</td><td>0</td><td>x</td><td>0</td><td>active</td></tr><tr><td>1</td><td>1</td><td>x</td><td>0</td><td>active</td></tr><tr><td>1</td><td>2</td><td>sin</td><td>0</td><td>active</td></tr><tr><td>1</td><td>3</td><td>sin</td><td>1</td><td>active</td></tr></tbody></table></section>
+<section><h2>Metadata</h2><pre>{
+  &quot;profile&quot;: &quot;tutorial&quot;,
+  &quot;seed&quot;: 42
+}</pre></section>
+<div class="notice"><strong>Scientific-integrity boundary.</strong> This report was produced by an unofficial derivative package. It is not an upstream paper result and does not imply endorsement by the original authors.</div>
+</main></body></html>

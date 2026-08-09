@@ -12,6 +12,7 @@ dist/
 venv/
 .env
 .DS_Store
+.vscode/
 outputs/
 runs/
 *.pt
