@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Upstream Symbolic-KAN repository
+    url: https://github.com/sfaroughi3/Pub_Symbolic_KANs
+    about: Use the upstream repository for questions specifically about the authors' original implementation.
+  - name: Security policy
+    url: https://github.com/jiangnan030-del/symbolic-kan-reproducible/security/policy
+    about: Read the responsible disclosure instructions before reporting a vulnerability.

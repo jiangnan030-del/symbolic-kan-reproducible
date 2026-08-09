@@ -1,0 +1,8 @@
+# Default maintainer for this derivative repository.
+* @jiangnan030-del
+
+# Attribution-sensitive files require maintainer review.
+/NOTICE.md @jiangnan030-del
+/LICENSE @jiangnan030-del
+/CITATION.cff @jiangnan030-del
+/docs/ACADEMIC_INTEGRITY.md @jiangnan030-del

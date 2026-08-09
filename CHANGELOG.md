@@ -15,6 +15,9 @@ All notable changes to this unofficial derivative are recorded here.
 - Correct variable-limit Gauss–Legendre Volterra quadrature with O(NQ) storage.
 - Legacy, paper-aligned, corrected, and smoke configuration profiles.
 - Unit tests, CI, provenance notice, citation metadata, and academic-integrity guidance.
+- Repository cover and social-preview artwork.
+- English and Simplified Chinese repository overviews, badges, architecture diagram, and star history.
+- Security policy, issue forms, CODEOWNERS, Dependabot, roadmap, and pre-release notes.
 
 ### Important
 

@@ -1,0 +1,63 @@
+name: Reproducibility report
+description: Report a scientific-regression or configuration result with full provenance.
+title: "[Reproducibility]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This form is for results produced with this unofficial derivative package. It does not certify reproduction of the original paper.
+  - type: input
+    id: derivative_commit
+    attributes:
+      label: Derivative package commit
+      placeholder: Full Git SHA
+    validations:
+      required: true
+  - type: input
+    id: upstream_commit
+    attributes:
+      label: Upstream reference commit
+      value: 9481a822e73e5a7520c6c0a425a8a402f2878c03
+    validations:
+      required: true
+  - type: dropdown
+    id: profile
+    attributes:
+      label: Profile
+      options:
+        - legacy
+        - paper
+        - corrected
+        - smoke
+    validations:
+      required: true
+  - type: textarea
+    id: config
+    attributes:
+      label: Resolved configuration and seeds
+      description: Paste the resolved YAML or provide a permanent link to it.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment and hardware
+      description: Include Python, PyTorch, OS, accelerator, dtype, and deterministic flags.
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Result
+      description: Include metrics, failures, selected structure, and links to raw logs or artifacts.
+    validations:
+      required: true
+  - type: checkboxes
+    id: integrity
+    attributes:
+      label: Scientific integrity
+      options:
+        - label: I clearly distinguish these results from values reported by the upstream authors.
+          required: true
+        - label: I will retain the exact configuration, commit, and raw outputs.
+          required: true
