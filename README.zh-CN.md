@@ -6,7 +6,7 @@
   <a href="https://github.com/jiangnan030-del/symbolic-kan-reproducible/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/jiangnan030-del/symbolic-kan-reproducible/actions/workflows/ci.yml/badge.svg"></a>
   <img alt="Python 3.10–3.12" src="https://img.shields.io/badge/python-3.10%E2%80%933.12-3776AB">
   <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-46A171"></a>
-  <img alt="版本 0.1.0a1" src="https://img.shields.io/badge/version-0.1.0a1-D5803B">
+  <img alt="版本 0.1.0a2" src="https://img.shields.io/badge/version-0.1.0a2-D5803B">
 </p>
 
 <p align="center"><a href="README.md">English</a> · 简体中文</p>
@@ -17,7 +17,7 @@
 > 所有。本项目不是原作者的官方发布，也不代表原作者背书。
 
 本项目提供可安装、可测试的 `symbolic_kan` Python 包，重点改善确定性验证、结构硬化、
-实验配置、数值安全、测试和来源追踪。当前版本为研究软件 Alpha，不宣称已经复现论文全部表格和长训练结果。
+候选结构检查、可移植 checkpoint、审计报告、实验配置、数值安全和来源追踪。当前版本为研究软件 Alpha，不宣称已经复现论文全部表格和长训练结果。
 
 ## 原始来源
 
@@ -38,6 +38,9 @@
 - 真正的 pairwise NMS，并将旧 off-mass 项单独命名；
 - `fixed_sum` 与 `trainable_linear` 两种 readout；
 - primitive、edge 和可选 unit 的结构硬化；
+- 硬化前 primitive 候选排序、置信度标记与确定性剪枝；
+- schema-versioned、device-agnostic checkpoint；
+- JSON、表达式文本、SVG 结构图和便携 HTML 审计报告；
 - 安全逆函数和正参数约束；
 - 针对每个变上限映射的 Volterra Gauss–Legendre 求积；
 - `legacy`、`paper`、`corrected`、`smoke` 配置分离；
@@ -87,7 +90,38 @@ print(export_expression(model, variables=["x"]))
 ```bash
 symkan info
 symkan smoke --config experiments/reaction_diffusion/configs/smoke.yaml
+symkan fit-demo --config experiments/regression/configs/smoke.yaml --output outputs/regression-smoke
 ```
+
+`fit-demo` 会同时生成硬化前和硬化后的 checkpoint 与报告。
+
+## 检查、剪枝与导出
+
+```bash
+symkan inspect \
+  --checkpoint outputs/regression-smoke/checkpoint_soft.pt \
+  --output outputs/regression-smoke/inspection
+
+symkan prune \
+  --checkpoint outputs/regression-smoke/checkpoint_soft.pt \
+  --unit-threshold 0.5 \
+  --edge-min-confidence 0.75 \
+  --output outputs/regression-smoke/checkpoint_pruned.pt
+
+symkan plot \
+  --checkpoint outputs/regression-smoke/checkpoint_pruned.pt \
+  --output outputs/regression-smoke/structure.svg
+
+symkan export \
+  --checkpoint outputs/regression-smoke/checkpoint_pruned.pt \
+  --output outputs/regression-smoke/export
+```
+
+审计包包含 `symbolic_report.json`、`expression.txt`、`structure.svg` 和 `report.html`。
+候选分数只是模型自身 gate 概率减去显式复杂度先验，并不是 R²，也不能证明真实控制方程。
+做科学结论前应比较多个随机种子，并验证插值、外推、导数误差和量纲一致性。
+详见 [`docs/INSPECTABILITY.md`](docs/INSPECTABILITY.md) 与
+[`tutorials/00_hello_symbolic_kan.ipynb`](tutorials/00_hello_symbolic_kan.ipynb)。
 
 ## 配置边界
 
@@ -98,10 +132,18 @@ symkan smoke --config experiments/reaction_diffusion/configs/smoke.yaml
 
 `corrected` 结果不能表述为原作者结果；通过 `smoke` 也不等于完成论文复现。
 
+## PyKAN 启发与边界
+
+`0.1.0a2` 借鉴了 PyKAN 的“检查—剪枝—符号化—导出”用户工作流，但没有复制 PyKAN 源码。
+PyKAN 主要学习边上的 spline，并可在训练后拟合符号函数；本项目直接排序并硬化原生离散 primitive 库。
+二者的实现和数值结果不能混同。精确版本和许可边界见
+[`docs/RELATED_WORK.md`](docs/RELATED_WORK.md)。
+
 ## 当前状态
 
 当前 Alpha 已覆盖确定性验证、结构硬化、primitive 数值安全、pairwise NMS、表达式导出、
-优化器配置和 Volterra 求积测试。尚未独立复现论文全部随机种子、表格和长训练指标。
+优化器配置、checkpoint 往返、剪枝不变量、报告生成和 Volterra 求积测试。
+尚未独立复现论文全部随机种子、表格和长训练指标。
 详见 [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) 与
 [`docs/VALIDATION_STATUS.md`](docs/VALIDATION_STATUS.md)。
 
