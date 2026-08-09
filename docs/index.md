@@ -17,6 +17,7 @@ flowchart LR
 
 ## Start here
 
+- [Two-dimensional Laplace case](LAPLACE_CASE.md)
 - [Inspectability workflow](INSPECTABILITY.md)
 - [Reproducibility protocol](REPRODUCIBILITY.md)
 - [Validation status](VALIDATION_STATUS.md)

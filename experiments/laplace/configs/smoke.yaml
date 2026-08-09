@@ -1,0 +1,32 @@
+name: laplace-2d-smoke
+profile: smoke
+model:
+  input_dim: 2
+  hidden_units: 3
+  edges_per_unit: 2
+  num_blocks: 2
+  primitives: [const, x, x2, sin, cos, sinh, cosh, exp]
+  readout: fixed_sum
+  unit_gates: false
+  dtype: float64
+training:
+  seed: 42
+  adam_epochs: 5
+  learning_rate: 0.005
+  weight_decay: 0.0
+  tau_start: 2.0
+  tau_end: 0.5
+  selection_weight_end: 0.01
+  nms_weight: 0.1
+  lbfgs_steps: 0
+problem:
+  type: laplace
+  domain: [0.0, 1.0]
+  collocation_count: 32
+  boundary_count: 16
+  pde_weight: 1.0
+  boundary_weight: 1.0
+provenance:
+  purpose: code-path smoke test, not a paper result
+  source_scope: benchmark equation transcribed from the manuscript; no matching upstream script was published
+  upstream_commit: 9481a822e73e5a7520c6c0a425a8a402f2878c03
