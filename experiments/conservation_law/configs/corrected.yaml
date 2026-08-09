@@ -1,0 +1,38 @@
+name: conservation-law-corrected
+profile: corrected
+model:
+  input_dim: 2
+  hidden_units: 4
+  edges_per_unit: 2
+  num_blocks: 3
+  primitives: [const, x, x2, sin, cos, tanh, exp]
+  readout: fixed_sum
+  unit_gates: false
+  dtype: float64
+training:
+  seed: 42
+  adam_epochs: 500
+  learning_rate: 0.003
+  weight_decay: 0.0
+  tau_start: 4.0
+  tau_end: 0.2
+  selection_start_fraction: 0.5
+  selection_weight_end: 0.3
+  sharpness_weight: 1.0
+  entropy_weight: 0.9
+  nms_weight: 0.9
+  gradient_clip_norm: 5.0
+  lbfgs_steps: 10
+  lbfgs_learning_rate: 0.3
+problem:
+  type: conservation_law
+  domain: [0.0, 1.0]
+  t_end: 0.2
+  collocation_count: 256
+  ic_count: 128
+  pde_weight: 1.0
+  ic_weight: 2.0
+provenance:
+  purpose: corrected derivative experiment with validated quadrature
+  source_scope: adapted from KindXiaoming/pykan Physics_2A_conservation_law tutorial
+  upstream_commit: 9481a822e73e5a7520c6c0a425a8a402f2878c03

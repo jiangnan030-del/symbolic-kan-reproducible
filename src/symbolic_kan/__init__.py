@@ -24,6 +24,7 @@ from .inspection import (
     write_symbolic_report,
 )
 from .model import GateState, SymbolicKAN
+from .plotting import plot_1d_prediction, plot_2d_prediction, plot_training_history
 from .training import FitResult, fit_supervised
 
 suggest_primitives = rank_primitive_candidates
@@ -45,6 +46,9 @@ __all__ = [
     "fit_supervised",
     "load_checkpoint",
     "load_experiment_config",
+    "plot_1d_prediction",
+    "plot_2d_prediction",
+    "plot_training_history",
     "prune_edges",
     "prune_units",
     "rank_primitive_candidates",
