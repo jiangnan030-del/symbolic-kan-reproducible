@@ -6,7 +6,7 @@
   <a href="https://github.com/jiangnan030-del/symbolic-kan-reproducible/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/jiangnan030-del/symbolic-kan-reproducible/actions/workflows/ci.yml/badge.svg"></a>
   <img alt="Python 3.10–3.12" src="https://img.shields.io/badge/python-3.10%E2%80%933.12-3776AB">
   <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-46A171"></a>
-  <img alt="Version 0.1.0a1" src="https://img.shields.io/badge/version-0.1.0a1-D5803B">
+  <img alt="Version 0.1.0a2" src="https://img.shields.io/badge/version-0.1.0a2-D5803B">
   <a href="https://github.com/jiangnan030-del/symbolic-kan-reproducible/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/jiangnan030-del/symbolic-kan-reproducible?style=flat"></a>
   <a href="https://github.com/jiangnan030-del/symbolic-kan-reproducible/network/members"><img alt="GitHub forks" src="https://img.shields.io/github/forks/jiangnan030-del/symbolic-kan-reproducible?style=flat"></a>
   <a href="https://github.com/sfaroughi3/Pub_Symbolic_KANs"><img alt="Upstream repository" src="https://img.shields.io/badge/upstream-Pub__Symbolic__KANs-5E9FE8"></a>
@@ -15,6 +15,7 @@
 <p align="center">
   <a href="#installation">Installation</a> ·
   <a href="#quick-start">Quick start</a> ·
+  <a href="#inspect-prune-and-export">Inspectability</a> ·
   <a href="#architecture">Architecture</a> ·
   <a href="#reproducibility-status">Status</a> ·
   <a href="README.zh-CN.md">简体中文</a>
@@ -27,8 +28,8 @@
 
 A research-oriented Python package for inspecting, testing, and extending Symbolic
 Kolmogorov–Arnold Networks with discrete primitive, edge, and optional unit selection.
-The first alpha release prioritizes provenance, deterministic evaluation, testability,
-and a clean API over claiming complete reproduction of the paper.
+The alpha series prioritizes provenance, deterministic evaluation, inspectability,
+testability, and a clean API over claiming complete reproduction of the paper.
 
 ## Upstream attribution
 
@@ -53,13 +54,17 @@ package only as the derivative implementation used for your experiment.
 - Supports both paper-aligned `fixed_sum` and upstream-compatible `trainable_linear`
   readouts.
 - Hardens primitive, edge, and optional unit decisions before deterministic refinement.
+- Ranks pre-hardening native primitive candidates with an explicit complexity prior.
+- Produces confidence-aware pruning reports instead of silently hiding uncertain choices.
+- Saves schema-versioned, device-agnostic checkpoints and portable JSON/HTML/SVG reports.
 - Provides a safe inverse primitive at zero.
 - Implements variable-limit Gauss–Legendre Volterra quadrature using mapped nodes for
   every upper limit, with O(NQ) storage rather than an O(Q²) masked global rule.
 - Records `legacy`, `paper`, `corrected`, and `smoke` profiles separately.
 
 See [`docs/PAPER_CODE_DIFFERENCES.md`](docs/PAPER_CODE_DIFFERENCES.md) for the audited
-differences and the boundary between upstream behavior and this derivative package.
+differences and [`docs/INSPECTABILITY.md`](docs/INSPECTABILITY.md) for the discovery
+workflow and evidence limits.
 
 ## At a glance
 
@@ -71,6 +76,8 @@ differences and the boundary between upstream behavior and this derivative packa
 | Readout | Trainable linear layer | `fixed_sum` and `trainable_linear` |
 | Experiment intent | Script-local settings | Explicit `legacy` / `paper` / `corrected` / `smoke` profiles |
 | Volterra quadrature | Masked global rule | Variable-limit mapped Gauss–Legendre rule |
+| Inspectability | Script-local plots/prints | Candidate evidence, pruning report, SVG and HTML audit bundle |
+| Checkpoints | Script state files | Versioned CPU-portable model/training/provenance payload |
 | Verification | Manual experiment scripts | Unit tests, CI, manifests, and provenance docs |
 
 The table describes implementation differences; it does **not** claim that corrected
@@ -83,15 +90,15 @@ flowchart LR
     A[Input coordinates] --> B[Learnable scalar projections]
     B --> C[Primitive library]
     C --> D[Gumbel-Softmax gates]
-    D --> E[Edge and optional unit selection]
-    E --> F[Deterministic hardening]
+    D --> E[Inspect candidate evidence]
+    E --> F[Prune and harden]
     F --> G[L-BFGS refinement]
-    G --> H[Auditable symbolic expression]
+    G --> H[Checkpoint and audit report]
 ```
 
 Training explores discrete choices through Gumbel-Softmax. Evaluation is deterministic;
-selected structures are hardened before continuous-parameter refinement and expression
-export.
+pre-hardening evidence can be inspected, selected structures are hardened before
+continuous-parameter refinement, and all exported artifacts preserve provenance.
 
 ## Installation
 
@@ -149,6 +156,39 @@ symkan fit-demo \
   --output outputs/regression-smoke
 ```
 
+This writes both a pre-hardening checkpoint/report and the final hardened checkpoint/report.
+
+## Inspect, prune, and export
+
+The `0.1.0a2` workflow separates evidence inspection from the final discrete export:
+
+```bash
+symkan inspect \
+  --checkpoint outputs/regression-smoke/checkpoint_soft.pt \
+  --output outputs/regression-smoke/inspection
+
+symkan prune \
+  --checkpoint outputs/regression-smoke/checkpoint_soft.pt \
+  --unit-threshold 0.5 \
+  --edge-min-confidence 0.75 \
+  --output outputs/regression-smoke/checkpoint_pruned.pt
+
+symkan plot \
+  --checkpoint outputs/regression-smoke/checkpoint_pruned.pt \
+  --output outputs/regression-smoke/structure.svg
+
+symkan export \
+  --checkpoint outputs/regression-smoke/checkpoint_pruned.pt \
+  --output outputs/regression-smoke/export
+```
+
+The report bundle contains `symbolic_report.json`, `expression.txt`, `structure.svg`,
+and `report.html`. Candidate scores are native gate evidence with an explicit complexity
+prior—not proof of a governing law. Compare seeds and validate interpolation,
+extrapolation, derivatives, and dimensional consistency before making scientific claims.
+
+See [`tutorials/00_hello_symbolic_kan.ipynb`](tutorials/00_hello_symbolic_kan.ipynb).
+
 ## Configuration profiles
 
 - `legacy`: documents the behavior observed in the audited upstream script.
@@ -162,9 +202,10 @@ paper result, and a passing `smoke` run is not a paper reproduction.
 ## Package layout
 
 ```text
-src/symbolic_kan/          core model, gates, training, export and problem helpers
+src/symbolic_kan/          core model, gates, training, checkpoints and audit helpers
 experiments/               named YAML configurations; no hidden defaults
 examples/                  minimal API examples
+tutorials/                 notebook-based inspectability walkthroughs
 tests/                     unit and scientific-regression tests
 docs/                      provenance, differences and reproducibility guidance
 ```
@@ -172,10 +213,20 @@ docs/                      provenance, differences and reproducibility guidance
 ## Reproducibility status
 
 This is an **alpha research package**. It includes tests for deterministic evaluation,
-hardening, primitive safety, true NMS, expression export, optimizer configuration, and
-Volterra quadrature. It has not independently reproduced every table, seed, or long-run
-metric reported in the paper. See [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md)
-and [`docs/VALIDATION_STATUS.md`](docs/VALIDATION_STATUS.md).
+hardening, primitive safety, true NMS, expression export, optimizer configuration,
+checkpoint round trips, report generation, pruning invariants, and Volterra quadrature.
+It has not independently reproduced every table, seed, or long-run metric reported in
+the paper. See [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md) and
+[`docs/VALIDATION_STATUS.md`](docs/VALIDATION_STATUS.md).
+
+## Related work
+
+The inspect–prune–export workflow was informed by the user experience of
+[PyKAN](https://github.com/KindXiaoming/pykan), but `0.1.0a2` does not copy PyKAN source
+code. PyKAN learns edge splines and may fit symbolic functions afterward; this package
+ranks and hardens its native discrete primitive library. See
+[`docs/RELATED_WORK.md`](docs/RELATED_WORK.md) for the exact version and code-origin
+boundary.
 
 ## How to cite without misattribution
 
