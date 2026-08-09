@@ -1,4 +1,24 @@
-# symbolic-kan-reproducible
+<p align="center">
+  <img src="docs/assets/banner.svg" width="100%" alt="Symbolic-KAN Reproducible — unofficial attributed alpha research package">
+</p>
+
+<p align="center">
+  <a href="https://github.com/jiangnan030-del/symbolic-kan-reproducible/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/jiangnan030-del/symbolic-kan-reproducible/actions/workflows/ci.yml/badge.svg"></a>
+  <img alt="Python 3.10–3.12" src="https://img.shields.io/badge/python-3.10%E2%80%933.12-3776AB">
+  <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-46A171"></a>
+  <img alt="Version 0.1.0a1" src="https://img.shields.io/badge/version-0.1.0a1-D5803B">
+  <a href="https://github.com/jiangnan030-del/symbolic-kan-reproducible/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/jiangnan030-del/symbolic-kan-reproducible?style=flat"></a>
+  <a href="https://github.com/jiangnan030-del/symbolic-kan-reproducible/network/members"><img alt="GitHub forks" src="https://img.shields.io/github/forks/jiangnan030-del/symbolic-kan-reproducible?style=flat"></a>
+  <a href="https://github.com/sfaroughi3/Pub_Symbolic_KANs"><img alt="Upstream repository" src="https://img.shields.io/badge/upstream-Pub__Symbolic__KANs-5E9FE8"></a>
+</p>
+
+<p align="center">
+  <a href="#installation">Installation</a> ·
+  <a href="#quick-start">Quick start</a> ·
+  <a href="#architecture">Architecture</a> ·
+  <a href="#reproducibility-status">Status</a> ·
+  <a href="README.zh-CN.md">简体中文</a>
+</p>
 
 > **Unofficial derivative — attribution required.** This repository packages and refactors
 > the public Symbolic-KAN research code. The Symbolic-KAN method, paper, and original
@@ -38,7 +58,40 @@ package only as the derivative implementation used for your experiment.
   every upper limit, with O(NQ) storage rather than an O(Q²) masked global rule.
 - Records `legacy`, `paper`, `corrected`, and `smoke` profiles separately.
 
-See [`docs/PAPER_CODE_DIFFERENCES.md`](docs/PAPER_CODE_DIFFERENCES.md) for details.
+See [`docs/PAPER_CODE_DIFFERENCES.md`](docs/PAPER_CODE_DIFFERENCES.md) for the audited
+differences and the boundary between upstream behavior and this derivative package.
+
+## At a glance
+
+| Area | Audited upstream code | This package |
+| --- | --- | --- |
+| Distribution | Experiment directories | Installable `src/` package |
+| Evaluation | Stochastic Gumbel sampling | Deterministic soft/argmax evaluation |
+| Edge regularization | Off-mass term labelled NMS | Pairwise NMS plus separate off-mass |
+| Readout | Trainable linear layer | `fixed_sum` and `trainable_linear` |
+| Experiment intent | Script-local settings | Explicit `legacy` / `paper` / `corrected` / `smoke` profiles |
+| Volterra quadrature | Masked global rule | Variable-limit mapped Gauss–Legendre rule |
+| Verification | Manual experiment scripts | Unit tests, CI, manifests, and provenance docs |
+
+The table describes implementation differences; it does **not** claim that corrected
+settings reproduce the paper's reported metrics.
+
+## Architecture
+
+```mermaid
+flowchart LR
+    A[Input coordinates] --> B[Learnable scalar projections]
+    B --> C[Primitive library]
+    C --> D[Gumbel-Softmax gates]
+    D --> E[Edge and optional unit selection]
+    E --> F[Deterministic hardening]
+    F --> G[L-BFGS refinement]
+    G --> H[Auditable symbolic expression]
+```
+
+Training explores discrete choices through Gumbel-Softmax. Evaluation is deterministic;
+selected structures are hardened before continuous-parameter refinement and expression
+export.
 
 ## Installation
 
@@ -121,7 +174,8 @@ docs/                      provenance, differences and reproducibility guidance
 This is an **alpha research package**. It includes tests for deterministic evaluation,
 hardening, primitive safety, true NMS, expression export, optimizer configuration, and
 Volterra quadrature. It has not independently reproduced every table, seed, or long-run
-metric reported in the paper. See [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md).
+metric reported in the paper. See [`docs/REPRODUCIBILITY.md`](docs/REPRODUCIBILITY.md)
+and [`docs/VALIDATION_STATUS.md`](docs/VALIDATION_STATUS.md).
 
 ## How to cite without misattribution
 
@@ -135,6 +189,22 @@ Recommended wording:
 
 Use [`CITATION.cff`](CITATION.cff) for structured metadata. Do not cite this package as
 if it were the source of the Symbolic-KAN method.
+
+## Star history
+
+<details>
+<summary>Show repository star history</summary>
+
+[![Star History Chart](https://api.star-history.com/svg?repos=jiangnan030-del/symbolic-kan-reproducible&type=Date)](https://star-history.com/#jiangnan030-del/symbolic-kan-reproducible&Date)
+
+</details>
+
+## Contributing and security
+
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) before opening a pull request and
+[`SECURITY.md`](SECURITY.md) for responsible vulnerability reporting. Reproduction
+reports should include the exact commit, profile, resolved configuration, environment,
+dtype, device, and seed.
 
 ## License
 
