@@ -1,0 +1,42 @@
+name: laplace-2d-corrected
+profile: corrected
+model:
+  input_dim: 2
+  hidden_units: 6
+  edges_per_unit: 3
+  num_blocks: 4
+  primitives: [const, x, x2, sin, cos, sinh, cosh, exp]
+  residual: true
+  primitive_bias: true
+  unit_gates: false
+  readout: fixed_sum
+  edge_selection: soft
+  dtype: float64
+training:
+  seed: 42
+  adam_epochs: 10500
+  learning_rate: 0.005
+  weight_decay: 0.0
+  gate_weight_decay: 0.01
+  tau_start: 4.0
+  tau_end: 0.2
+  selection_start_fraction: 0.5
+  selection_weight_end: 0.5
+  entropy_weight: 0.9
+  nms_weight: 0.9
+  off_mass_weight: 0.0
+  lbfgs_steps: 500
+  lbfgs_max_iter: 15
+  lbfgs_clip_norm: null
+  deterministic_algorithms: true
+problem:
+  type: laplace
+  domain: [0.0, 1.0]
+  collocation_count: 10000
+  boundary_count: 400
+  pde_weight: 1.0
+  boundary_weight: 1.0
+provenance:
+  note: derivative corrected profile; results must not be attributed to upstream authors
+  source_scope: benchmark equation transcribed from the manuscript; numerical settings include derivative-package corrections
+  upstream_commit: 9481a822e73e5a7520c6c0a425a8a402f2878c03
