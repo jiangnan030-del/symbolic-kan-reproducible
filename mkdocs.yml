@@ -1,0 +1,37 @@
+site_name: Symbolic-KAN Reproducible
+site_description: Unofficial attributed Symbolic-KAN refactor for reproducible scientific learning
+site_url: https://jiangnan030-del.github.io/symbolic-kan-reproducible/
+repo_url: https://github.com/jiangnan030-del/symbolic-kan-reproducible
+repo_name: jiangnan030-del/symbolic-kan-reproducible
+copyright: Unofficial derivative; see NOTICE.md for upstream attribution.
+
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+  palette:
+    primary: blue
+    accent: blue
+
+nav:
+  - Home: index.md
+  - Inspectability workflow: INSPECTABILITY.md
+  - Reproducibility: REPRODUCIBILITY.md
+  - Validation status: VALIDATION_STATUS.md
+  - Paper/code differences: PAPER_CODE_DIFFERENCES.md
+  - Academic integrity: ACADEMIC_INTEGRITY.md
+  - Related work: RELATED_WORK.md
+  - Roadmap: ROADMAP.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
